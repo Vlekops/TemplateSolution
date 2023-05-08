@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Vleko",
+  "classifications": [ "Project", "Enterprise","Web","Service" ],
+  "groupIdentity": "Vleko.Solution",
+  "identity": "Vleko.Solution.CSharp",
+  "name": "Vleko Complex Solution Project Enterprise",
+  "shortName": "vleko.project",
+  "description": "Base Solution For Complex Project, easy to scalability, auto generated code with impelemntation of Distributed Architecture,Client-Server Architecture, N-Tier Architecture, Domain Driven Design,Clean Architecture, Micro Services architecture,Micro Frontends, Event-Bus Architecture, CQRS Mediatr, Handlebars",
+  "sourceName": "Vleko.Project",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "preferNameDirectory": true,
+  "symbols": {
+    "ProjectName": {
+      "type": "parameter",
+      "replaces": "Vleko.TemplateProject",
+      "isRequired": true,
+      "fileRename": "Vleko.TemplateProject",
+      "defaultValue": "Vleko.Project"
+    }
+  }
+}
