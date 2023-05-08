@@ -1,5 +1,0 @@
-
-dotnet tool install --global dotnet-ef or
-dotnet tool update --global dotnet-ef
-
-dotnet ef dbcontext scaffold "Data Source=localhost;Initial Catalog=Vleko.TemplateProject;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer --output-dir "..\Vleko.TemplateProject.Data\Model" -c ApplicationDBContext --context-dir "..\Vleko.TemplateProject.Data" --namespace "Vleko.TemplateProject.Data.Model" --context-namespace "Vleko.TemplateProject.Data" --no-pluralize -f --no-onconfiguring

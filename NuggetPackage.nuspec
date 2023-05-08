@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Vleko.Solution.CSharp</id>
+    <version>1.0.0</version>
+    <authors>Vleko</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/Vlekops/TemplateSolution</projectUrl>
+    <description>Base Solution For Complex Project, easy to scalability, auto generated code with impelemntation of Distributed Architecture,Client-Server Architecture, N-Tier Architecture, Domain Driven Design,Clean Architecture, Micro Services architecture,Micro Frontends, Event-Bus Architecture, CQRS Mediatr, Handlebars</description>
+    <tags>Project Enterprise Web Service</tags>
+  </metadata>
+</package>

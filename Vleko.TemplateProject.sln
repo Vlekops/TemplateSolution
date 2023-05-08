@@ -12,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6CBB8A67-3985-43E7-9625-D95D33FB42F0}"
 	ProjectSection(SolutionItems) = preProject
 		Database.sql = Database.sql
-		HOW_TO.txt = HOW_TO.txt
 		README.md = README.md
 		.template.config\template.json = .template.config\template.json
 	EndProjectSection
@@ -21,11 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{45AF5D8F-523C-48A1-9F61-35A91CDC7826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vleko.TemplateProject.Infrastructure.Mail", "Infrastructure\Vleko.TemplateProject.Infrastructure.Mail\Vleko.TemplateProject.Infrastructure.Mail.csproj", "{CFE4E75F-8C26-40B1-93FC-788CFB41EA60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vleko.TemplateProject.Infrastructure.Mail", "Infrastructure\Vleko.TemplateProject.Infrastructure.Mail\Vleko.TemplateProject.Infrastructure.Mail.csproj", "{CFE4E75F-8C26-40B1-93FC-788CFB41EA60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vleko.TemplateProject.API", "Presentation\Vleko.TemplateProject.API\Vleko.TemplateProject.API.csproj", "{F57DA6A5-1E94-4D1C-B583-5B91208F942B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vleko.TemplateProject.API", "Presentation\Vleko.TemplateProject.API\Vleko.TemplateProject.API.csproj", "{F57DA6A5-1E94-4D1C-B583-5B91208F942B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vleko.TemplateProject.Web", "Presentation\Vleko.TemplateProject.Web\Vleko.TemplateProject.Web.csproj", "{19AB35DD-51C3-4B84-95F2-8B1153D5EC9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vleko.TemplateProject.Web", "Presentation\Vleko.TemplateProject.Web\Vleko.TemplateProject.Web.csproj", "{19AB35DD-51C3-4B84-95F2-8B1153D5EC9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
