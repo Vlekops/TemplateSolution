@@ -1,7 +1,8 @@
-CREATE DATABASE [Vleko.TemplateProject]
+CREATE DATABASE [Vleko.TemplateProject];
 
 //#if(Database=="mssql")
-CREATE TABLE Vleko.TemplateProject.dbo.REPOSITORY (
+USE [Vleko.TemplateProject];
+CREATE TABLE dbo.REPOSITORY (
 	ID uniqueidentifier DEFAULT newid() NOT NULL,
 	CODE varchar(100) COLLATE Latin1_General_CI_AS NOT NULL,
 	MODUL varchar(150) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -15,7 +16,7 @@ CREATE TABLE Vleko.TemplateProject.dbo.REPOSITORY (
 	CONSTRAINT PK_REPOSITORY PRIMARY KEY (ID)
 );
 
-CREATE TABLE Vleko.TemplateProject.dbo.[ROLE] (
+CREATE TABLE dbo.[ROLE] (
 	ID varchar(50) COLLATE Latin1_General_CI_AS NOT NULL,
 	NAME varchar(100) COLLATE Latin1_General_CI_AS NOT NULL,
 	ACTIVE bit NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE Vleko.TemplateProject.dbo.[ROLE] (
 	CONSTRAINT PK_ROLE PRIMARY KEY (ID)
 );
 
-CREATE TABLE Vleko.TemplateProject.dbo.[USER] (
+CREATE TABLE dbo.[USER] (
 	ID uniqueidentifier DEFAULT newid() NOT NULL,
 	USERNAME nvarchar(80) COLLATE Latin1_General_CI_AS NOT NULL,
 	PASSWORD nvarchar(50) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE Vleko.TemplateProject.dbo.[USER] (
 	CONSTRAINT PK_USER PRIMARY KEY (ID)
 );
 
-CREATE TABLE Vleko.TemplateProject.dbo.NOTIFICATION (
+CREATE TABLE dbo.NOTIFICATION (
 	ID uniqueidentifier DEFAULT newid() NOT NULL,
 	ID_USER uniqueidentifier NOT NULL,
 	USER_FULLNAME varchar(150) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -57,33 +58,33 @@ CREATE TABLE Vleko.TemplateProject.dbo.NOTIFICATION (
 	CREATE_BY varchar(250) COLLATE Latin1_General_CI_AS NOT NULL,
 	CREATE_DATE datetime DEFAULT getdate() NOT NULL,
 	CONSTRAINT PK_NOTIFICATION PRIMARY KEY (ID),
-	CONSTRAINT NOTIFICATION_FK FOREIGN KEY (ID_USER) REFERENCES [Vleko.TemplateProject].dbo.[USER](ID) ON DELETE CASCADE
+	CONSTRAINT NOTIFICATION_FK FOREIGN KEY (ID_USER) REFERENCES dbo.[USER](ID) ON DELETE CASCADE
 );
 
-CREATE TABLE Vleko.TemplateProject.dbo.USER_ROLE (
+CREATE TABLE dbo.USER_ROLE (
 	ID uniqueidentifier DEFAULT newid() NOT NULL,
 	ID_USER uniqueidentifier NOT NULL,
 	ID_ROLE varchar(50) COLLATE Latin1_General_CI_AS NOT NULL,
 	CREATE_BY varchar(250) COLLATE Latin1_General_CI_AS NOT NULL,
 	CREATE_DATE datetime DEFAULT getdate() NOT NULL,
 	CONSTRAINT PK_USER_ROLE PRIMARY KEY (ID),
-	CONSTRAINT FK_USER_ROLE_ROLE FOREIGN KEY (ID_ROLE) REFERENCES [Vleko.TemplateProject].dbo.[ROLE](ID) ON DELETE CASCADE,
-	CONSTRAINT FK_USER_ROLE_USER FOREIGN KEY (ID_USER) REFERENCES [Vleko.TemplateProject].dbo.[USER](ID) ON DELETE CASCADE
+	CONSTRAINT FK_USER_ROLE_ROLE FOREIGN KEY (ID_ROLE) REFERENCES dbo.[ROLE](ID) ON DELETE CASCADE,
+	CONSTRAINT FK_USER_ROLE_USER FOREIGN KEY (ID_USER) REFERENCES dbo.[USER](ID) ON DELETE CASCADE
 );
 
-INSERT INTO Vleko.TemplateProject.dbo.[ROLE] (ID,NAME,ACTIVE,CREATE_BY,CREATE_DATE,UPDATE_BY,UPDATE_DATE) VALUES
+INSERT INTO dbo.[ROLE] (ID,NAME,ACTIVE,CREATE_BY,CREATE_DATE,UPDATE_BY,UPDATE_DATE) VALUES
 	 (N'ADM',N'Admin',1,N'SYSTEM',getdate(),N'SYSTEM',getdate()),
 	 (N'MBR',N'Member',1,N'SYSTEM',getdate(),N'SYSTEM',getdate());
 
-INSERT INTO Vleko.TemplateProject.dbo.[USER] (ID,USERNAME,PASSWORD,FULLNAME,MAIL,PHONE_NUMBER,TOKEN,IS_LOCKOUT,ACCESS_FAILED_COUNT,ACTIVE,CREATE_BY,CREATE_DATE,UPDATE_BY,UPDATE_DATE) VALUES
+INSERT INTO dbo.[USER] (ID,USERNAME,PASSWORD,FULLNAME,MAIL,PHONE_NUMBER,TOKEN,IS_LOCKOUT,ACCESS_FAILED_COUNT,ACTIVE,CREATE_BY,CREATE_DATE,UPDATE_BY,UPDATE_DATE) VALUES
 	 (N'491874CE-92C0-4CFD-83B7-F916DF7C219B',N'Admin',N'5F4DCC3B5AA765D61D8327DEB882CF99',N'Administrator',N'admin@mail.com',N'0000000',null,0,0,1,N'SYSTEM',getdate(),N'SYSTEM',getdate());
 
-INSERT INTO Vleko.TemplateProject.dbo.USER_ROLE (ID,ID_USER,ID_ROLE,CREATE_BY,CREATE_DATE) VALUES
+INSERT INTO dbo.USER_ROLE (ID,ID_USER,ID_ROLE,CREATE_BY,CREATE_DATE) VALUES
 	 (N'2DA981E5-B0EE-4630-B755-2A10CA0F15BF',N'491874CE-92C0-4CFD-83B7-F916DF7C219B',N'ADM',N'SYSTEM',getdate());
 //#endif
 
 //#if(Database=="postgre")
-CREATE TABLE Vleko.TemplateProject.public.repository (
+CREATE TABLE public.repository (
 	id uuid NOT NULL DEFAULT gen_random_uuid(),
 	code varchar(100) NOT NULL,
 	modul varchar(150) NOT NULL,
@@ -97,7 +98,7 @@ CREATE TABLE Vleko.TemplateProject.public.repository (
 	CONSTRAINT pk_repository PRIMARY KEY (id)
 );
 
-CREATE TABLE Vleko.TemplateProject.public."role" (
+CREATE TABLE public."role" (
 	id varchar(50) NOT NULL,
 	"name" varchar(100) NOT NULL,
 	active boolean NOT NULL,
@@ -108,7 +109,7 @@ CREATE TABLE Vleko.TemplateProject.public."role" (
 	CONSTRAINT pk_role PRIMARY KEY (id)
 );
 
-CREATE TABLE Vleko.TemplateProject.public."user" (
+CREATE TABLE public."user" (
 	id uuid NOT NULL DEFAULT gen_random_uuid(),
 	username varchar(80) NOT NULL,
 	"password" varchar(50) NOT NULL,
@@ -126,7 +127,7 @@ CREATE TABLE Vleko.TemplateProject.public."user" (
 	CONSTRAINT pk_user PRIMARY KEY (id)
 );
 
-CREATE TABLE Vleko.TemplateProject.public.notification (
+CREATE TABLE public.notification (
 	id uuid NOT NULL DEFAULT gen_random_uuid(),
 	id_user uuid NOT NULL,
 	user_fullname varchar(150) NOT NULL,
@@ -139,25 +140,25 @@ CREATE TABLE Vleko.TemplateProject.public.notification (
 	create_by varchar(250) NOT NULL,
 	create_date timestamp NOT NULL DEFAULT now(),
 	CONSTRAINT pk_notification PRIMARY KEY (id),
-	CONSTRAINT notification_user_fk FOREIGN KEY (id_user) REFERENCES Vleko.TemplateProject.public."user"(id) ON DELETE CASCADE ON UPDATE RESTRICT
+	CONSTRAINT notification_user_fk FOREIGN KEY (id_user) REFERENCES public."user"(id) ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
-CREATE TABLE Vleko.TemplateProject.public.user_role (
+CREATE TABLE public.user_role (
 	id uuid NOT NULL DEFAULT gen_random_uuid(),
 	id_user uuid NOT NULL,
 	id_role varchar(50) NOT NULL,
 	create_by varchar(250) NOT NULL,
 	create_date timestamp NOT NULL DEFAULT now(),
 	CONSTRAINT pk_user_role PRIMARY KEY (ID),
-	CONSTRAINT user_role_role_fk FOREIGN KEY (id_role) REFERENCES Vleko.TemplateProject.public."role"(id) ON DELETE CASCADE ON UPDATE RESTRICT,
-	CONSTRAINT user_role_user_fk FOREIGN KEY (id_user) REFERENCES Vleko.TemplateProject.public."user"(id) ON DELETE CASCADE ON UPDATE RESTRICT
+	CONSTRAINT user_role_role_fk FOREIGN KEY (id_role) REFERENCES public."role"(id) ON DELETE CASCADE ON UPDATE RESTRICT,
+	CONSTRAINT user_role_user_fk FOREIGN KEY (id_user) REFERENCES public."user"(id) ON DELETE CASCADE ON UPDATE RESTRICT
 );
 
-INSERT INTO Vleko.TemplateProject.public."role" (id,"name",active,create_by,create_date,update_by,update_date) VALUES
+INSERT INTO public."role" (id,"name",active,create_by,create_date,update_by,update_date) VALUES
 	 ('ADM','Admin',true,'SYSTEM',now(),'SYSTEM',now()),
 	 ('MBR','Member',true,'SYSTEM',now(),'SYSTEM',now());
 
-INSERT INTO Vleko.TemplateProject.public."user" (id,username,"password",fullname,mail,phone_number,"token",is_lockout,access_failed_count,active,create_by,create_date,update_by,update_date) VALUES
+INSERT INTO public."user" (id,username,"password",fullname,mail,phone_number,"token",is_lockout,access_failed_count,active,create_by,create_date,update_by,update_date) VALUES
 	 ('4ef08bb2-7ecd-4402-b2d7-08f6066caf2b','Admin','5F4DCC3B5AA765D61D8327DEB882CF99','Administrator','admin@mail.com','0000000',null,false,0,true,'SYSTEM',now(),'SYSTEM',now());
 
 INSERT INTO public."user_role" (id,id_user,id_role,create_by,create_date) VALUES
