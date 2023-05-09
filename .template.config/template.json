@@ -19,7 +19,73 @@
       "replaces": "Vleko.TemplateProject",
       "isRequired": true,
       "fileRename": "Vleko.TemplateProject",
-      "defaultValue": "Vleko.Project"
+      "defaultValue": "YOUR_ORGANIZATION.YOUR_PROJECT"
+    },
+    "Environment": {
+      "type": "parameter",
+      "description": "Environment Server for your Project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "Windows"
+        },
+        {
+          "choice": "Linux"
+        }
+      ],
+      "defaultValue": "Windows",
+      "replaces": "{ENVIRONMENT}"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "Target Framework for your Project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net7.0",
+          "description": "Net 7.0"
+        },
+        {
+          "choice": "net6.0",
+          "description": "Net 6.0"
+        }
+      ],
+      "defaultValue": "net7.0",
+      "replaces": "{FRAMEWORK}"
+    },
+    "Database": {
+      "type": "parameter",
+      "description": "Target Database for your Project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "mssql",
+          "description": "MSSQL"
+        },
+        {
+          "choice": "postgre",
+          "description": "Postgre SQL"
+        }
+      ],
+      "defaultValue": "mssql"
+    },
+    "BackgroundJob": {
+      "type": "parameter",
+      "description": "Background Job (Hangfire)",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "CacheDatabase": {
+      "type": "parameter",
+      "description": "Cache Database (Redis)",
+      "datatype": "bool",
+      "defaultValue": "false"
+    },
+    "LoggingServer": {
+      "type": "parameter",
+      "description": "Logging Server (Seq Log)",
+      "datatype": "bool",
+      "defaultValue": "false"
     }
   },
   "sources": [
@@ -28,7 +94,8 @@
         "**/[Bb]in/**",
         "**/[Oo]bj/**",
         ".git/**",
-        "NuggetPackage.nuspec"
+        "NuggetPackage.nuspec",
+        ".template.config/**"
       ]
     }
   ]

@@ -13,7 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Database.sql = Database.sql
 		README.md = README.md
-		.template.config\template.json = .template.config\template.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{591B375B-52FF-428A-A6F8-67F8E3674DF5}"

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>{FRAMEWORK}</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
@@ -15,7 +15,13 @@
 		<PackageReference Include="EntityFrameworkCore.Scaffolding.Handlebars" Version="6.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15" />
+		<!--#if(Database=="mssql") -->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+		<!--#endif -->
+		<!--#if(Database=="postgre") -->
+		<PackageReference Include="Npgsql" Version="6.0.4" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
+		<!--#endif -->
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.15" />
